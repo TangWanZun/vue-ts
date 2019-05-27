@@ -1,0 +1,47 @@
+html{
+    font-size: 18px;
+}
+
+*{
+	margin:0px;
+	padding:0px;
+	box-sizing: border-box;
+}
+
+/**
+     全局css变量
+*/
+/*
+    色彩模块
+*/
+// 主要颜色
+@mainColor:#409EFF;
+//次要颜色
+@secondaryColor:fade(@mainColor,15%);
+
+/*
+    文字大小模块
+*/
+.app-h1{
+    font-size: 2em;
+}
+.app-h2{
+    font-size: 1.5em;
+}
+.app-h3{
+    font-size: 1em;
+}
+.app-h4{
+    font-size: 0.85em;
+}
+.app-h5{
+    font-size: 0.7em;
+}
+//app取消滚动条
+.app-scroll-none{
+    &::-webkit-scrollbar
+    {
+        width: 0;
+        height: 0;
+    }
+}
