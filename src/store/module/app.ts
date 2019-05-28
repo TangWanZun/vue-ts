@@ -4,11 +4,16 @@ export default {
 	namespaced: true,
 	state: {
 		//从后台获取的路由权限列表
-		routerList: []
+		routerList: [],
+		//当前tab页签的全部页签
+		navTabBerList:[]
 	},
 	mutations: {
-		setRouterList(state: any, data: object) {
+		setRouterList(state: any, data: any[]) {
 			state.routerList = data;
+		},
+		setNavTabBerList(state:any,data:any[]){
+			state.navTabBerList = data;
 		}
 	},
 	actions: {
@@ -66,6 +71,6 @@ export default {
 					]
 				}
 			])
-		}
+		},
 	}
 }

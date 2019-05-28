@@ -42,8 +42,10 @@ export default class LineSecondary extends Vue {
   //当前主树上的选择索引
   @Prop({ type: Number }) readonly mainTreeIndex!: number;
   //当前副级id
-  secondaryTreeId:string = '';
-
+  // secondaryTreeId:string|undefined = 'integralMallHome';
+  get secondaryTreeId():string|undefined{
+    return this.$route.name
+  }
 //   @Watch("mainTreeIndex", { immediate: true })
 //   dataChange() {
 //     let routerName: string = this.routerLine[this.mainTreeIndex].list[
@@ -75,12 +77,11 @@ export default class LineSecondary extends Vue {
    * 点击item
    */
   onClickItem(item:any){
-	this.secondaryTreeId = item.id;
+	// this.secondaryTreeId = item.id;
 	// let list:any[] = this.routerLine[this.mainTreeIndex].list;
-	// find(list,'id',item.id);
-    this.$router.push({
-      name: item.id
-    });
+  // find(list,'id',item.id);
+  this.$emit("on-click-item",item)
+
   }
 }
 </script>

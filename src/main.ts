@@ -5,8 +5,12 @@ import store from './store/index'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import './main.less';
+import config from "./$config"
 
 Vue.config.productionTip = false
+
+//添加全局变量属性
+Vue.prototype.$config = config;
 
 Vue.use(ElementUI);
 
