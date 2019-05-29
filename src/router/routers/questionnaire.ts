@@ -11,9 +11,9 @@ export default  [
 		children: [
 			{
 				path: 'world',
-				name: 'questionnaireWorld',
+				name: 'QuestionnaireWorld',
 				meta:{
-					title:"调查首页"
+					title:"推广海报自定义"
 				},
 				component:()=>import('@/views/questionnaire/World.vue')
 			},

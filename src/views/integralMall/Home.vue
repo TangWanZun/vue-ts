@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     integralMall/Home
+    <input type="text">
   </div>
 </template>
 
@@ -11,5 +12,5 @@ import { Component, Vue } from 'vue-property-decorator';
   components: {
   },
 })
-export default class Home extends Vue {}
+export default class IntegralMallHome extends Vue {}
 </script>

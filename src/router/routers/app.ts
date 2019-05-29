@@ -11,7 +11,7 @@ export default  [
 		children: [
 			{
 				path: 'index',
-				name: 'appHome',
+				name: 'AppHome',
 				meta:{
 					title:"首页",
 				},

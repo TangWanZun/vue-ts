@@ -11,7 +11,7 @@ export default  [
 		children: [
 			{
 				path: 'home',
-				name: 'integralMallHome',
+				name: 'IntegralMallHome',
 				meta:{
 					title:"积分首页",
 				},

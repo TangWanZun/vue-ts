@@ -27,7 +27,9 @@
           <tab-bar @on-click-tab="onClickTab" @on-close="onCloseTab"></tab-bar>
         </div>
         <div class="line-page-body">
-          <router-view></router-view>
+          <keep-alive :include="cacheList">
+            <router-view></router-view>
+          </keep-alive>
         </div>
       </div>
     </div>
@@ -42,8 +44,8 @@ import TabBar from "./components/TabBar.vue";
 import LineMain from "./components/LineMain.vue";
 //左侧次要内容栏
 import LineSecondary from "./components/LineSecondary.vue";
-import { find } from '../../library/util';
-import $config from '../../$config';
+import { find } from "../../library/util";
+import $config from "../../$config";
 
 @Component({
   components: {
@@ -66,6 +68,15 @@ export default class Main extends Vue {
   get newRoute(): any {
     return this.$route;
   }
+
+  //缓存的页面名称列表
+  get cacheList(): string[] {
+    let tabList: any[] = this.$store.state.app.navTabBerList;
+    return tabList.map((item, index) => {
+      return (item = item.name);
+    });
+  }
+
   //是否已经开启了主树
   lineMainShow: boolean = false;
   //当前主树上的选择索引
@@ -91,10 +102,10 @@ export default class Main extends Vue {
   created(): void {
     this.$store.commit("app/setNavTabBerList", [
       {
-        name:$config.homeName,
-				meta:{
-					title:"首页",
-				},
+        name: $config.homeName,
+        meta: {
+          title: "首页"
+        }
       }
     ]);
   }
@@ -102,7 +113,6 @@ export default class Main extends Vue {
    * 点击左侧主要树按钮
    */
   onClickMainItem(index: number) {
-    
     this.mainTreeIndex = index;
     //关闭主树
     this.lineMainShow = false;
@@ -136,7 +146,7 @@ export default class Main extends Vue {
         //表示关闭的页签正好为当前路由的页签的时候
         //展示当前关闭页签的前一个页签
         this.$router.push({
-          name: tabList[index-1>=0?index-1:0].name
+          name: tabList[index - 1 >= 0 ? index - 1 : 0].name
         });
       }
       //删除当前页签
@@ -149,7 +159,7 @@ export default class Main extends Vue {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
-@headerHeight: 60px;
+@headerHeight: 1px;
 // 头部信息
 .main-header {
   height: @headerHeight;

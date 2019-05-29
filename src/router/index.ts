@@ -13,8 +13,9 @@ routes = routes.concat(app,integralMall,questionnaire);
 
 Vue.use(Router)
 
+
 let router =  new Router({
-  routes
+  routes,
 })
 
 
